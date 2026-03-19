@@ -50,6 +50,7 @@ services:
       - STRIPE_PRICE_FAMILY_MONTHLY=${STRIPE_PRICE_FAMILY_MONTHLY}
       - STRIPE_PRICE_FAMILY_YEARLY=${STRIPE_PRICE_FAMILY_YEARLY}
       - SAAS_DOMAIN=${SAAS_DOMAIN:-financetracker.app}
+      - REGISTRATION_ENABLED=${REGISTRATION_ENABLED:-true}
       - FLASK_ENV=production
     volumes:
       - saas_data:/data

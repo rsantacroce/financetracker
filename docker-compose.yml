@@ -15,6 +15,7 @@ services:
     environment:
       - SECRET_KEY=${SECRET_KEY:-change-this-in-production}
       - DATABASE=/data/finance.db
+      - REGISTRATION_ENABLED=${REGISTRATION_ENABLED:-true}
       - FLASK_ENV=production
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]

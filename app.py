@@ -19,6 +19,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
 app.config['DATABASE'] = os.environ.get('DATABASE', 'finance.db')
 app.config['SAAS_MODE'] = os.environ.get('SAAS_MODE', 'false').lower() == 'true'
+app.config['REGISTRATION_ENABLED'] = os.environ.get('REGISTRATION_ENABLED', 'true').lower() == 'true'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -227,6 +228,9 @@ def load_user(user_id):
 # Authentication routes
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if not app.config['REGISTRATION_ENABLED']:
+        flash('Registration is currently disabled.', 'warning')
+        return redirect(url_for('login'))
     if current_user.is_authenticated:
         return redirect(url_for('dashboard'))
 

@@ -90,6 +90,7 @@ cp .env.example .env
 |----------|-------------|---------|
 | `SECRET_KEY` | Flask secret key | `dev-secret-key...` |
 | `DATABASE` | SQLite database path | `finance.db` |
+| `REGISTRATION_ENABLED` | Enable/disable new user registration | `true` |
 | `SAAS_MODE` | Enable SaaS features | `false` |
 | `SAAS_DOMAIN` | Domain for tenant subdomains | `financetracker.app` |
 | `EMAIL_DOMAIN` | Domain for email ingestion | `in.financetracker.app` |
